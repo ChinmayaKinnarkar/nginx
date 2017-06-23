@@ -1,0 +1,19 @@
+# NGINX config for 404 and 500 error pages
+server {
+    server_name https://chinmayakinnarkar.github.io/GoT/#/ ;
+    root /github/repository/GoT/;
+    location =/ {
+       listen       80;
+    }
+    
+    /* error 404 */
+    location = /error_404.html {
+       internal;
+    }
+    
+    /* error 500*/ 
+    location =/error_500.html {
+        internal;
+    }
+}
+
