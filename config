@@ -7,12 +7,17 @@ server {
     }
     
     /* error 404 */
-    location = /error_404.html {
+    
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+    root /github/repository/GoT/;
        internal;
     }
     
     /* error 500*/ 
-    location =/error_500.html {
+    error_page 500 502 503 504 /custom_50x.html;
+    location =/custom_50x.html {
+    root /github/repository/GoT/;
         internal;
     }
 }
