@@ -1,30 +1,34 @@
 # NGINX config for 404 and 500 error pages
- server {
-        listen       80;
-        server_name  *.got.com ;
-        root /user/share/nginx/got-app;
-        index index.html;
-	
-        location / {
-            root  /user/share/nginx/got-app;   
-        }
+server {
 
-   #error page 404
-   
-        error_page  404 /custom_404.html;
-        
-        location = /custom_404.html {
-        root    /user/share/nginx/got-app;
-	    internal;
-}	
+	listen 80;
+	server_name *.got.com ;
+	root /usr/share/nginx/got-app;
+	index index.html;
 
-   #error page 500
-   
-        error_page   500 502 503 504  /custom_50x.html;
-        
-        location = /custom_50x.html {
-        root  /user/share/nginx/got-app;
-         internal;
-        }
+	location / {
+
+		try_files $uri $uri/ =404;
+	}
+
+	#error page 404
+
+	error_page 404 /404.html;
+
+	location = /404.html {
+
+		root /usr/share/nginx/got-app;
+		internal;
+	}
+
+	#error page 500
+
+	error_page 500 502 503 504 /50x.html;
+
+	location = /50x.html {
+
+		root /usr/share/nginx/got-app;
+		internal;
+	}
 }
 
