@@ -4,7 +4,7 @@
         server_name   www.got.com ;
         
         location / {
-            root  /home/chinmaya/project/got-app;   
+            root  /program files/nginx/got-app;   
         }
 
    #error page 404
@@ -12,7 +12,7 @@
         error_page  404 /custom_404.html;
         
         location = /custom_404.html {
-        root    /home/chinmaya/project/got-app;
+        root    /program files/nginx/got-app;
 	    internal;
 }	
 
@@ -21,7 +21,7 @@
         error_page   500 502 503 504  /custom_50x.html;
         
         location = /custom_50x.html {
-        root  /home/chinmaya/project/got-app ;
+        root  /program files/nginx/got-app;
          internal;
         }
 }
